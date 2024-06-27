@@ -10,12 +10,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     chmod +x /chromedriver/chromedriver-linux64/chromedriver && \
     mv /chromedriver/chromedriver-linux64/chromedriver /usr/bin/chromedriver
 
-WORKDIR app
 COPY requirements.txt requirements.txt
 RUN pip3 install --upgrade --no-cache-dir -r requirements.txt
 RUN rm requirements.txt
-COPY script.py script.py
-
-ENTRYPOINT ["python3"]
-CMD ["script.py"]
 
